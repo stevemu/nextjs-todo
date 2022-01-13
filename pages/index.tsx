@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import { useQuery, useMutation } from 'react-query';
 import { useForm } from 'react-hook-form';
 import { Todo } from '../types/Todo';
+import { useCallback } from 'react';
 
 const Home: NextPage = () => {
   const { data: todos = [], refetch } = useQuery<Todo[]>('todos', async () => {
@@ -9,7 +10,7 @@ const Home: NextPage = () => {
   });
   const { register, handleSubmit } = useForm<Todo>();
 
-  const mutation = useMutation(async (newTodo) => {
+  const mutation = useMutation<void, Error, Todo>(async (newTodo) => {
     await fetch('/api/todo', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -17,10 +18,12 @@ const Home: NextPage = () => {
     });
   });
 
-  const onSubmit = async (todo) => {
-    await mutation.mutateAsync(todo);
-    await refetch();
-  };
+  const onSubmit = useCallback(async () => {
+    await handleSubmit(async (todo) => {
+      await mutation.mutateAsync(todo);
+      await refetch();
+    })();
+  }, [handleSubmit, mutation, refetch]);
 
   return (
     <div>

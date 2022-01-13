@@ -1,6 +1,6 @@
 import { MongoClient, Db } from 'mongodb';
 
-let db: Db = null;
+let db: Db;
 
 const connectToDb = (): Promise<Db> => {
   return new Promise((resolve, reject) => {

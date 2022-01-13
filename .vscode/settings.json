@@ -1,0 +1,75 @@
+/* .vscode/settings.json */
+// VSC settings for linting + formatting + type-checking
+// These "Workspace settings" will override your VSC user settings.
+// Alphabetizing your user settings is recommended.
+// Please INSTALL AND ENABLE the recommended extensions per ./extensions.json.
+// (ESLint + EditorConfig)
+{
+  // tell the ESLint plugin to run on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.detectIndentation": true,
+  "editor.emptySelectionClipboard": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  // delegate JS(X) + TS(X) formatting to eslint
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "editor.tabSize": 2, // <- what happens on tab keypress, cld be diff in prettier
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  // However you manage Node, make sure to point to it in user settings, eg:
+  // "eslint.nodeEnv": "/Users/cweekly/n/bin/node",
+  "eslint.packageManager": "yarn",
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "markdown"
+  ],
+  "eslint.run": "onSave", // vs "onType"
+  // However you manage Node, make sure to point to it in user settings, eg:
+  // "eslint.runtime": "/Users/cweekly/n/bin/node",
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "files.associations": {
+    "*.js": "javascript",
+    "*.jsx": "javascriptreact",
+    "*.ts": "typescript",
+    "*.tsx": "typescriptreact"
+  },
+  // PRETTIER
+  // Prettier (standalone) is not needed bc it's "embedded" in ESLint for TUX.
+  // IF you are using Prettier in VSC for something else, disable it for JS(X) + TS(X):
+  //   "prettier.disableLanguages": [
+  //     "javascript",
+  //     "javascriptreact",
+  //     "typescript",
+  //     "typescriptreact"
+  //   ],
+  //
+  // TYPESCRIPT
+  // use local project version (not global nor VSC's default)
+  // Recommended to set this one in user settings to keep VSC from reverting to its version
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.validate.enable": true
+}

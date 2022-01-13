@@ -1,0 +1,12 @@
+{
+  // PLEASE install and enable these extensions, for max parity btwn IDE and CI.
+  // Note the "Prettier" extension is NOT needed; we drive prettier rules via ESLint.
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig"
+    // @builtin extensions - recommended to enable these 3 globally
+    // "vscode.javascript",
+    // "vscode.typescript",
+    // "vscode.typescript-language-features"
+  ]
+}

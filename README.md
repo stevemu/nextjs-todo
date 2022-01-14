@@ -1,3 +1,6 @@
+Source code for preparing "how to develop and deploy a fullstack app with Nextjs, Mongodb and Vercel" for Authright on 1/14/22
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
